@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Level1 {
-	
-	public static void sortArray(int [] list) {
+
+    public static void sortArray(int [] list) {
         int x, y;
         for(int i = 0; i < (list.length - 1); i ++) {
             if(list[i + 1] < list[i]) {
@@ -19,18 +19,18 @@ public class Level1 {
             }
         }
     }
-	
+
     public static int [] MadMax(int N, int [] Tele) {
         int [] arrayImpulse = new int[N];
-		int k = 0;
+        int k = 0;
 
-        sortArray(Tele);     
+        sortArray(Tele);
 
         for(int i = 0; i < N; i ++) {
             if(i < N / 2) {
                 arrayImpulse[i] = Tele[i];
-            } else
-			if (i == N / 2) {
+            } else 
+            if (i == N / 2) {
                 arrayImpulse[i] = Tele[N - 1];
             } else {
                 arrayImpulse[i] = Tele[N - 2 - k];
