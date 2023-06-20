@@ -42,18 +42,23 @@ public class Level1
             }
         }
 
-        if(dif.charAt(0) == '0') {
-            String difWithoutNull = "";
-            for(int i = 1; i < dif.length(); i ++) {
-                char cur = dif.charAt(i);
-                if(cur == '0' && difWithoutNull.length() == 0) {
-                    continue;
-                }
-                difWithoutNull += cur;
-            }
-            return difWithoutNull;
+        if(dif.charAt(0) != '0') {
+            return dif;
         }
 
-        return dif;
+        String difWithoutNull = "";
+        for(int i = 1; i < dif.length(); i ++) {
+            char cur = dif.charAt(i);
+            if(cur == '0' && difWithoutNull.length() == 0) {
+                continue;
+            }
+            difWithoutNull += cur;
+        }
+
+        if(difWithoutNull.length() == 0) {
+            return "0";
+        }
+
+        return difWithoutNull;
     }
 }
