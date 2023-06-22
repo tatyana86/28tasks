@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-    public static boolean isSubstring(String s1, String s2) {
+    public static int indexIfSubstring(String s1, String s2) {
         for(int i = 0; (i + s2.length()) <= s1.length(); i ++) {
             int j = 0;
             for(j = 0; j < s2.length(); j ++) {
@@ -11,29 +11,31 @@ public class Level1
                 }
             }
             if(j == s2.length())
-                return true;
+                return i;
         }
-        return false;
+        return -1;
     }
 
     public static boolean TankRush(int H1, int W1, String S1, int H2, int W2, String S2) {
         String[] map = S1.split(" ");
         String[] tanks = S2.split(" ");
-        int entry = 0;
 
-        for(String tank : tanks) {
-            for(String line : map) {
-                if(isSubstring(line, tank)) {
+        for(int i = 0; i < H1; i ++) {
+            int index = indexIfSubstring(map[i], tanks[0]);
+            if(index > -1) {
+                int entry = 1;
+                for(int j = 1; j < H2; j ++) {
+                    if(indexIfSubstring(map[i + j], tanks[j]) != index) {
+                        break;
+                    }
                     entry ++;
-                    break;
+                }
+
+                if(entry == H2){
+                    return true;
                 }
             }
         }
-
-        if(entry == H2){
-            return true;
-        }
-
         return false;
     }
 }
