@@ -11,13 +11,12 @@ public class Level1
             while(index > -1) {
                 int entry = 1;
                 for(int j = 1; j < H2; j ++) {
-                    if(map[i + j].indexOf(tanks[j]) != index) {
+                    if(map[i + j].indexOf(tanks[j], index) != index) {
                         index = map[i].indexOf(tanks[0], index + 1);
                         break;
                     }
                     entry ++;
                 }
-
                 if(entry == H2){
                     return true;
                 }
