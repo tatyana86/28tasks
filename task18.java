@@ -11,7 +11,7 @@ public class Level1
         return -1;
     }
 
-    public static boolean MisterRobot(int N, int[] data) {
+	public static boolean MisterRobot(int N, int[] data) {
         for (int i = 1; i <= data.length; i++) {
             int indexNum = findIndex(i, data);
             int indexMove = indexNum - i + 1;
