@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Level1
 {
-	public static int findIndex(int num, int[] data) {
+    public static int findIndex(int num, int[] data) {
         for (int i = 0; i < data.length; i++) {
             if (data[i] == num) {
                 return i;
@@ -11,7 +11,7 @@ public class Level1
         return -1;
     }
 
-	public static boolean MisterRobot(int N, int[] data) {
+    public static boolean MisterRobot(int N, int[] data) {
         for (int i = 1; i <= data.length; i++) {
             int indexNum = findIndex(i, data);
             int indexMove = indexNum - i + 1;
