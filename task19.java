@@ -35,12 +35,12 @@ public class Level1
 
         String [] nameArray = name.toArray(new String[name.size()]);
         int [] amountArray = new int [amount.size()];
-        for (int i = 0; i < amountArray.length; i++) {
+        for(int i = 0; i < amountArray.length; i++) {
             amountArray[i] = amount.get(i);
         }
 
-        for (int i = 0; i < amountArray.length - 1; ++i) {
-            for (int j = 0; j < amountArray.length - i - 1; ++j) {
+        for(int i = 0; i < amountArray.length - 1; ++i) {
+            for(int j = 0; j < amountArray.length - i - 1; ++j) {
                 if(amountArray[j + 1] > amountArray[j] || (amountArray[j + 1] == amountArray[j] && nameArray[j + 1].compareTo(nameArray[j]) < 0)) {
                     int buf1 = amountArray[j];
                     amountArray[j] = amountArray[j + 1];
