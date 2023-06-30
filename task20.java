@@ -7,7 +7,15 @@ public class Level1
         result.add("");
     }
     static int undoCount = 0;
-    
+
+    public static String createString(int N, char[] s) {
+        String newResult = "";
+        for(int i = 0; i < N; i ++) {
+            newResult += Character.toString(s[i]);
+        }
+        return  newResult;
+    }
+
     public static String BastShoe(String command) {
 
         String[] commandSeparation = command.split(" ",2);
@@ -35,9 +43,7 @@ public class Level1
             int commandArg = Integer.valueOf(commandSeparation[1]);
             String newResult = "";
             char [] lastResult = result.get(result.size() - 1).toCharArray();
-            for(int i = 0; i < lastResult.length - commandArg; i ++) {
-                newResult += Character.toString(lastResult[i]);
-            }
+            newResult = createString(lastResult.length - commandArg, lastResult);
             result.add(newResult);
         }
 
@@ -69,7 +75,7 @@ public class Level1
             }
             String redoResult = result.get(redoIndex);
             if(undoCount > 0) {
-                undoCount --;
+                undoCount--;
             }
             return redoResult;
         }
