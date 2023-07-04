@@ -12,26 +12,34 @@ public class Level1
     }
 
     public static int[][] dieTree(int H, int W, int [][] tree) {
+        ArrayList<Integer> deadBranches = new ArrayList<>();
         for(int i = 0; i < H; i ++) {
             for (int j = 0; j < W; j++) {
-                if(tree[i][j] < 3) {
-                    continue;
-                }
-                tree[i][j] = 0;
-                if(i - 1 >= 0) {
-                    tree[i - 1][j] = 0;
-                }
-                if(i + 1 < H) {
-                    tree[i + 1][j] = 0;
-                }
-                if(j - 1 >= 0) {
-                    tree[i][j - 1] = 0;
-                }
-                if(j + 1 < W) {
-                    tree[i][j + 1] = 0;
+                if (tree[i][j] >= 3) {
+                    deadBranches.add(i);
+                    deadBranches.add(j);
                 }
             }
         }
+
+        for(int br = 0; br < deadBranches.size(); br += 2) {
+            int i = deadBranches.get(br);
+            int j = deadBranches.get(br + 1);
+            tree[i][j] = 0;
+            if(i - 1 >= 0) {
+                tree[i - 1][j] = 0;
+            }
+            if(i + 1 < H) {
+                tree[i + 1][j] = 0;
+            }
+            if(j - 1 >= 0) {
+                tree[i][j - 1] = 0;
+            }
+            if(j + 1 < W) {
+                tree[i][j + 1] = 0;
+            }
+        }
+
         return tree;
     }
 
