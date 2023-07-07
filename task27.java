@@ -34,10 +34,14 @@ public class Level1
     }
 
     public static boolean Football(int F[], int N) {
+        if(isSort(F)) {
+            return false;
+        }
+
         int index1 = -1;
         int index2 = -1;
 
-        for(int i = 0; i < N; i ++) {
+        for(int i = 0; i < N - 1; i ++) {
             if(F[i] > F[i + 1]) {
                 index1 = i;
                 break;
